@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 6
-  TurnSpeed: 10
+  TurnSpeed: 15
   jumpSpeed: 8
   gravity: 20
 --- !u!1001 &3892482366717164616

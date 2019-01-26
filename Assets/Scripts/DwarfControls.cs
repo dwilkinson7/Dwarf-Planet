@@ -36,7 +36,9 @@ public class DwarfControls : MonoBehaviour
         transform.Translate(moveDirection, Space.Self);
 
         /* Camera */
-        var x = CrossPlatformInputManager.GetAxis("Mouse X");
+        var x = Input.GetAxis("RStick X");
+        if (Mathf.Abs(x) < 0.02f)
+            x = CrossPlatformInputManager.GetAxis("Mouse X") * 0.7f;
         transform.Rotate(Vector3.up, x * TurnSpeed, Space.Self);
     }
 }
