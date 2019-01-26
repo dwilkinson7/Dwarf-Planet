@@ -25,7 +25,6 @@ public class CraftBoxes : MonoBehaviour {
             nuBox = Instantiate(box);
             nuBox.position = location;
             nuBox.up = location - transform.position;
-            Debug.Log(i);
             if (i % 10 == 0)
                 yield return new WaitForSeconds(delay);
         }

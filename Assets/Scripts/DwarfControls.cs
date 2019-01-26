@@ -10,15 +10,12 @@ public class DwarfControls : MonoBehaviour
 {
     public float MoveSpeed = 6.0f;
     public float TurnSpeed = 10f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-
+    public float JumpStrength = 8.0f;
+    public float FlapStrength = 8.0f;
     private Vector3 moveDirection = Vector3.zero;
 
-    private void Start()
-    {
-        
-    }
+    [Header("Components")]
+    public Rigidbody rigidbody;
 
     void Update()
     {
@@ -27,9 +24,19 @@ public class DwarfControls : MonoBehaviour
         //moveDirection = transform.TransformDirection(moveDirection);
         moveDirection = moveDirection.normalized * MoveSpeed * Time.deltaTime;
 
-        if (Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump") && CanJump)
         {
-            moveDirection.y = jumpSpeed;
+            var up = transform.position.normalized;
+            if (Physics.Raycast(transform.position + (up * 0.1f), -up, 0.2f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
+            {
+                Debug.Log("Jump");
+                rigidbody.AddForce(up * JumpStrength, ForceMode.Impulse);
+            }
+            else
+            {
+                Debug.Log("Flap");
+                rigidbody.AddForce(up * FlapStrength, ForceMode.Impulse);
+            }
         }
 
         // Move the controller
@@ -40,5 +47,13 @@ public class DwarfControls : MonoBehaviour
         if (Mathf.Abs(x) < 0.02f)
             x = CrossPlatformInputManager.GetAxis("Mouse X") * 0.7f;
         transform.Rotate(Vector3.up, x * TurnSpeed, Space.Self);
+    }
+
+    private Rigidbody CanJump
+    {
+        get
+        {
+            return rigidbody;
+        }
     }
 }

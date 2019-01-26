@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour
         desiredLocation = Target.TransformPoint(Offset);
         _toDestination = desiredLocation - transform.position;
         transform.position += Vector3.ClampMagnitude(_toDestination, MoveSpeed);
-        desiredRotation = Quaternion.LookRotation((Target.position + LookatOffset) - transform.position, Target.position);
+        desiredRotation = Quaternion.LookRotation((Target.position + Target.localToWorldMatrix.MultiplyVector(LookatOffset)) - transform.position, Target.position);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, RotationSpeed * Time.fixedDeltaTime);
     }
 }
