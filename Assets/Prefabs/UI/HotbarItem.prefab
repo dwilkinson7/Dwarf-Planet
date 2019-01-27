@@ -571,8 +571,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef38bd8eae65774fb6eb4a8006b6ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 0}
-  colors: []
+  outline: {fileID: 3571455813507183557}
+  colors:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3571455813507183557
 MonoBehaviour:
   m_ObjectHideFlags: 0

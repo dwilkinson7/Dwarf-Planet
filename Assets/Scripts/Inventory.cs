@@ -8,7 +8,10 @@ public class Inventory : MonoBehaviour
     int current_amount = 0;
 
     GameObject item;
+    [Header("Components")]
+    public HotBar ui_hotbar;
 
+    [Header("Templates")]
     public GameObject straw;
     public GameObject wood;
     public GameObject stone;
@@ -31,15 +34,18 @@ public class Inventory : MonoBehaviour
             {
                 removeItem(type, 1);
                 item = Instantiate(straw, new Vector3(0, 0, 0), transform.rotation);
-                item.transform.SetParent(GameObject.Find("Hand").transform, false);
+                item.transform.SetParent(transform.Find("Hand").transform, false);
+                ui_hotbar.Select(0);
             }
             else
             {
+                ui_hotbar.Select(-1);
                 Debug.Log("You don't have the item!!!");
             }
         }
         else if (Input.GetKeyDown("2"))
         {
+            ui_hotbar.Select(1);
             string type = "Wood";
             if (items.ContainsKey(type) && items[type] > 0)
             {
@@ -49,11 +55,13 @@ public class Inventory : MonoBehaviour
             }
             else
             {
+                ui_hotbar.Select(-1);
                 Debug.Log("You don't have the item!!!");
             }
         }
         else if (Input.GetKeyDown("3"))
         {
+            ui_hotbar.Select(2);
             string type = "Stone";
             if (items.ContainsKey(type) && items[type] > 0)
             {
@@ -63,12 +71,13 @@ public class Inventory : MonoBehaviour
             }
             else
             {
+                ui_hotbar.Select(-1);
                 Debug.Log("You don't have the item!!!");
             }
-
         }
         else if (Input.GetKeyDown("4"))
         {
+            ui_hotbar.Select(3);
             string type = "Iron";
             if (items.ContainsKey(type) && items[type] > 0)
             {
@@ -78,6 +87,7 @@ public class Inventory : MonoBehaviour
             }
             else
             {
+                ui_hotbar.Select(-1);
                 Debug.Log("You don't have the item!!!");
             }
 
