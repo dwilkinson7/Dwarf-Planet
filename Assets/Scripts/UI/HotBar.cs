@@ -38,6 +38,18 @@ public class HotBar : MonoBehaviour
             case "Iron":
                 index = 3;
                 break;
+            case "Plat_W":
+                index = 4;
+                break;
+            case "Plat_S":
+                index = 5;
+                break;
+            case "Plat_I":
+                index = 6;
+                break;
+            case "Torch":
+                index = 7;
+                break;
         }
 
         if (index > -1)

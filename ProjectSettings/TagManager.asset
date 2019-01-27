@@ -8,7 +8,10 @@ TagManager:
   - Iron
   - Straw
   - Wood
-  - Straw_Full
+  - Torch
+  - Plat_W
+  - Plat_S
+  - Plat_I
   layers:
   - Default
   - TransparentFX

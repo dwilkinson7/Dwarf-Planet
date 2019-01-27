@@ -261,6 +261,7 @@ MonoBehaviour:
   wood: {fileID: 7938587867642550717, guid: f70cfb9381e10d04586495020bab90cf, type: 3}
   stone: {fileID: 332453686493676692, guid: 27c0fec4fc1e84c4ab0e434e398ed859, type: 3}
   iron: {fileID: 436939193579406574, guid: 6687504257ee9e04a95ee8a6baeedafa, type: 3}
+  torch: {fileID: 5276236013721076388, guid: 279b1229c87a5a842b30225d361569bb, type: 3}
 --- !u!1001 &3892482366717164616
 PrefabInstance:
   m_ObjectHideFlags: 0

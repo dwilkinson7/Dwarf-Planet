@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch_Pickup Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1752385065253818119, guid: fffd30e9346e51049b04c5d0183f0b34,
+        type: 3}
+      propertyPath: m_TagString
+      value: Torch
+      objectReference: {fileID: 0}
     - target: {fileID: 2555752553149438036, guid: fffd30e9346e51049b04c5d0183f0b34,
         type: 3}
       propertyPath: m_LocalPosition.x
