@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1790498532}
   - component: {fileID: 1790498531}
   - component: {fileID: 1790498534}
+  - component: {fileID: 2113203496}
   m_Layer: 0
   m_Name: Cloud1
   m_TagString: Untagged
@@ -113,3 +114,17 @@ MonoBehaviour:
   pivot: {fileID: 0}
   magnitude: 20
   speed: 10
+--- !u!114 &2113203496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790498529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4989ff00b275c9240b2d6d3e8535dfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rainDrop: {fileID: 7169443419436155625, guid: 04e0ab40837810146a80aa5f617239db,
+    type: 3}
