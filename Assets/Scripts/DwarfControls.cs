@@ -37,6 +37,11 @@ public class DwarfControls : MonoBehaviour
         Cursor.visible = false;
     }
 
+    bool isWalking;
+    public AudioSource foodstepAudio;
+    public AudioSource swingaxeAudio;
+    public AudioSource jumpAudio;
+    public AudioSource smashimpactAudio;
     void Update()
     {
         /* Movement */
@@ -46,6 +51,7 @@ public class DwarfControls : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && CanJump)
         {
+            jumpAudio.Play();
             var up = transform.position.normalized;
             if (Physics.Raycast(transform.position + (up * 0.1f), -up, 0.2f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
             {
@@ -74,18 +80,29 @@ public class DwarfControls : MonoBehaviour
             _isSwinging = true;
             dwarfAnimator.SetBool("Attacking", true);
             Invoke("Swing", 0.9f);
+            swingaxeAudio.PlayDelayed(0.7f);
             Invoke("EndSwing", 1f);
         }
 
         if (!_isSwinging && moveDirection.magnitude > 0.01f)
         {
-            dwarfAnimator.SetBool("Moving", true);
+            if (isWalking == false)
+            {
+                foodstepAudio.Play();
+                dwarfAnimator.SetBool("Moving", true);
+                isWalking = true;
+            }
             // Move the controller
             transform.Translate(moveDirection, Space.Self);
         }
         else
         {
-            dwarfAnimator.SetBool("Moving", false);
+            if (isWalking)
+            {
+                dwarfAnimator.SetBool("Moving", false);
+                foodstepAudio.Stop();
+                isWalking = false;
+            }
         }
 
         if (OrientToGround)
@@ -112,6 +129,7 @@ public class DwarfControls : MonoBehaviour
             var smashable = hit.collider.GetComponent<Smashable>();
             if (smashable)
             {
+                smashimpactAudio.Play();
                 if (DustMaker)
                 {
                     DustMaker.transform.position = hit.point;
