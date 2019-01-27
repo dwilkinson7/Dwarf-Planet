@@ -2625,6 +2625,16 @@ PrefabInstance:
       propertyPath: ui_hotbar
       value: 
       objectReference: {fileID: 616007014}
+    - target: {fileID: 3892482366709762344, guid: bbeb01345b1aa5d4591655be2931058f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892482366709762344, guid: bbeb01345b1aa5d4591655be2931058f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 74b434ff69728c542b21016aea2f3032, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbeb01345b1aa5d4591655be2931058f, type: 3}
 --- !u!1001 &1776115232

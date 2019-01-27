@@ -17,6 +17,7 @@ public class DwarfControls : MonoBehaviour
 
     [Header("Components")]
     public Rigidbody rigidbody;
+    public Animator dwarfAnimator;
 
     void Update()
     {
@@ -24,12 +25,21 @@ public class DwarfControls : MonoBehaviour
         moveDirection = (Vector3.right * Input.GetAxis("Horizontal")) + (Vector3.forward * Input.GetAxis("Vertical"));
         //moveDirection = transform.TransformDirection(moveDirection);
         moveDirection = moveDirection.normalized * MoveSpeed * Time.deltaTime;
+        if (moveDirection.magnitude > 0)
+        {
+            dwarfAnimator.SetBool("Moving", true);
+        }
+        else
+        {
+            dwarfAnimator.SetBool("Moving", false);
+        }
 
         if (Input.GetButtonDown("Jump") && CanJump)
         {
             var up = transform.position.normalized;
             if (Physics.Raycast(transform.position + (up * 0.1f), -up, 0.2f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
             {
+                dwarfAnimator.SetTrigger("Jumping");
                 Debug.Log("Jump");
                 rigidbody.AddForce(up * JumpStrength, ForceMode.Impulse);
             }
