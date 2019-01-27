@@ -30,8 +30,10 @@ MonoBehaviour:
   torch: {fileID: 4644454835264499963, guid: c53aaf5f37589a64e8d79934330d5d77, type: 3}
   woodPlat: {fileID: 5305982157495150980, guid: 5314c0b8f4a1ebb4796d1f665d54d13c,
     type: 3}
-  stonePlat: {fileID: 0}
-  ironPlat: {fileID: 0}
+  stonePlat: {fileID: 3695937759065035786, guid: f423aff0b17b7bc49807542c8f527691,
+    type: 3}
+  ironPlat: {fileID: 6028707603416006733, guid: c99a3312e0337894e8d6a364c668dab6,
+    type: 3}
 --- !u!1001 &3360909861400987403
 PrefabInstance:
   m_ObjectHideFlags: 0

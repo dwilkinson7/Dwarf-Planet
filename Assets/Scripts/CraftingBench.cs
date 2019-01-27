@@ -42,6 +42,10 @@ public class CraftingBench : MonoBehaviour
             Craft(torch);
         else if (Match("Wood", "Wood"))
             Craft(woodPlat);
+        else if (Match("Stone", "Stone"))
+            Craft(stonePlat);
+        else if (Match("Iron", "Iron"))
+            Craft(ironPlat);
         else
         {
             // else, pop the holograms
