@@ -10,10 +10,8 @@ public class SheepRun : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = transform.position + new Vector3(transform.up.x * 0.06f, transform.up.y * 0.06f + transform.up.z * 0.06f);
-        GetComponent<Rigidbody>().AddForce(Vector3.forward * 20);
+        GetComponent<Rigidbody>().AddForce(transform.forward * 25);
     }
 }
