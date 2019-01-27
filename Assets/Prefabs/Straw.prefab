@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1740090764270664639}
   - component: {fileID: 3647781120148664379}
   - component: {fileID: 3783767364050335474}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Straw
   m_TagString: Straw
   m_Icon: {fileID: 0}

@@ -28,7 +28,8 @@ MonoBehaviour:
   hologram1: {fileID: 8169344004096871796}
   hologram2: {fileID: 7996886753977332331}
   torch: {fileID: 4644454835264499963, guid: c53aaf5f37589a64e8d79934330d5d77, type: 3}
-  woodPlat: {fileID: 0}
+  woodPlat: {fileID: 5305982157495150980, guid: 5314c0b8f4a1ebb4796d1f665d54d13c,
+    type: 3}
   stonePlat: {fileID: 0}
   ironPlat: {fileID: 0}
 --- !u!1001 &3360909861400987403

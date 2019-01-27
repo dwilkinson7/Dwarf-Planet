@@ -40,6 +40,8 @@ public class CraftingBench : MonoBehaviour
         // Check if the recipe is valid
         if (Match("Straw", "Wood"))
             Craft(torch);
+        else if (Match("Wood", "Wood"))
+            Craft(woodPlat);
         else
         {
             // else, pop the holograms

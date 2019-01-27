@@ -102,23 +102,22 @@ public class Inventory : MonoBehaviour
                 canPick = false;
 
             }
-            //else if (Input.GetKeyDown("5"))
-            //{
-            //    ui_hotbar.Select(4);
-            //    string type = "Plat_W";
-            //    if (items.ContainsKey(type) && items[type] > 0)
-            //    {
-            //        chooseObject(type, woodPlatform);
-            //    }
-            //    else
-            //    {
-            //        ui_hotbar.Select(-1);
-            //        Debug.Log("You don't have the item!!!");
-            //    }
-            //    holding = true;
-            //    canPick = false;
-
-            //}
+            else if (Input.GetKeyDown("5"))
+            {
+                ui_hotbar.Select(4);
+                string type = "Plat_W";
+                if (items.ContainsKey(type) && items[type] > 0)
+                {
+                    chooseObject(type, woodPlatform);
+                }
+                else
+                {
+                    ui_hotbar.Select(-1);
+                    Debug.Log("You don't have the item!!!");
+                }
+                holding = true;
+                canPick = false;
+            }
             //else if (Input.GetKeyDown("6"))
             //{
             //    ui_hotbar.Select(5);
@@ -221,8 +220,8 @@ public class Inventory : MonoBehaviour
         {
             if (collision.gameObject.tag == "Torch")
                 pickUpObject(collision, torch);
-            //else if (collision.gameObject.tag == "Plat_W")
-            //    pickUpObject(collision, woodPlatform);
+            else if (collision.gameObject.tag == "Plat_W")
+                pickUpObject(collision, woodPlatform);
             //else if (collision.gameObject.tag == "Plat_S")
             //    pickUpObject(collision, stonePlatform);
             //else if (collision.gameObject.tag == "Plat_I")
