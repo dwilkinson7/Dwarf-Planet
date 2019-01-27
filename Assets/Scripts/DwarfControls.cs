@@ -20,6 +20,7 @@ public class DwarfControls : MonoBehaviour
     public Rigidbody rigidbody;
     public Animator dwarfAnimator;
     public ParticleSystem DustMaker;
+    public Camera mainCamera;
 
     private bool _isSwinging;
 
@@ -71,6 +72,11 @@ public class DwarfControls : MonoBehaviour
         if (Mathf.Abs(x) < 0.02f)
             x = CrossPlatformInputManager.GetAxis("Mouse X") * 0.7f;
         transform.Rotate(Vector3.up, x * TurnSpeed, Space.Self);
+
+        var y = Input.GetAxis("RStick Y");
+        if (Mathf.Abs(y) < 0.02f)
+            y = -2*CrossPlatformInputManager.GetAxis("Mouse Y") * 0.7f;
+        mainCamera.transform.RotateAround(transform.position, mainCamera.transform.right, y);
 
         if (Input.GetButtonDown("Fire1") && !_isSwinging)
         {
