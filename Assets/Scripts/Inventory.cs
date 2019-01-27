@@ -34,13 +34,11 @@ public class Inventory : MonoBehaviour
         {
             if (Input.GetKeyDown("1"))
             {
+                ui_hotbar.Select(0);
                 string type = "Straw";
                 if (items.ContainsKey(type) && items[type] > 0)
                 {
-                    removeItem(type, 1);
-                    item = Instantiate(straw, new Vector3(0, 0, 0), transform.rotation);
-                    item.transform.SetParent(transform.Find("Hand").transform, false);
-                    ui_hotbar.Select(0);
+                    chooseObject(type, straw);
                 }
                 else
                 {
@@ -56,9 +54,7 @@ public class Inventory : MonoBehaviour
                 string type = "Wood";
                 if (items.ContainsKey(type) && items[type] > 0)
                 {
-                    removeItem(type, 1);
-                    item = Instantiate(wood, new Vector3(0, 0, 0), transform.rotation);
-                    item.transform.SetParent(GameObject.Find("Hand").transform, false);
+                    chooseObject(type, wood);
                 }
                 else
                 {
@@ -74,9 +70,7 @@ public class Inventory : MonoBehaviour
                 string type = "Stone";
                 if (items.ContainsKey(type) && items[type] > 0)
                 {
-                    removeItem(type, 1);
-                    item = Instantiate(stone, new Vector3(0, 0, 0), transform.rotation);
-                    item.transform.SetParent(GameObject.Find("Hand").transform, false);
+                    chooseObject(type, stone);
                 }
                 else
                 {
@@ -92,9 +86,7 @@ public class Inventory : MonoBehaviour
                 string type = "Iron";
                 if (items.ContainsKey(type) && items[type] > 0)
                 {
-                    removeItem(type, 1);
-                    item = Instantiate(iron, new Vector3(0, 0, 0), transform.rotation);
-                    item.transform.SetParent(GameObject.Find("Hand").transform, false);
+                    chooseObject(type, iron);
                 }
                 else
                 {
@@ -117,9 +109,6 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown("f") && canPick && !holding)
         {
             holding = true;
-            //item = Instantiate(straw, new Vector3(0, 0, 0), transform.rotation);
-           // item.transform.SetParent(GameObject.Find("Hand").transform, false);
-
         }
     }
 
@@ -142,31 +131,34 @@ public class Inventory : MonoBehaviour
     {
         if(collision.gameObject.tag == "Straw" && Input.GetKeyDown("f"))
         {
-            canPick = true;
-            Destroy(collision.gameObject);
-            item = Instantiate(straw, new Vector3(0, 0, 0), transform.rotation);
-            item.transform.SetParent(GameObject.Find("Hand").transform, false);
+            pickUpObject(collision, straw);
         }
         else if (collision.gameObject.tag == "Wood" && Input.GetKeyDown("f"))
         {
-            canPick = true;
-            Destroy(collision.gameObject);
-            item = Instantiate(wood, new Vector3(0, 0, 0), transform.rotation);
-            item.transform.SetParent(GameObject.Find("Hand").transform, false);
+            pickUpObject(collision, wood);
         }
         else if (collision.gameObject.tag == "Iron" && Input.GetKeyDown("f"))
         {
-            canPick = true;
-            Destroy(collision.gameObject);
-            item = Instantiate(iron, new Vector3(0, 0, 0), transform.rotation);
-            item.transform.SetParent(GameObject.Find("Hand").transform, false);
+            pickUpObject(collision, iron);
         }
         else if (collision.gameObject.tag == "Stone" && Input.GetKeyDown("f"))
         {
-            canPick = true;
-            Destroy(collision.gameObject);
-            item = Instantiate(stone, new Vector3(0, 0, 0), transform.rotation);
-            item.transform.SetParent(GameObject.Find("Hand").transform, false);
+            pickUpObject(collision, stone);
         }
+    }
+
+    void chooseObject(string type, GameObject go)
+    {
+        removeItem(type, 1);
+        item = Instantiate(go, new Vector3(0, 0, 0), transform.rotation);
+        item.transform.SetParent(transform.Find("Hand").transform, false);
+    }
+
+    void pickUpObject(Collision col, GameObject go)
+    {
+        canPick = true;
+        Destroy(col.gameObject);
+        item = Instantiate(go, new Vector3(0, 0, 0), transform.rotation);
+        item.transform.SetParent(GameObject.Find("Hand").transform, false);
     }
 }
