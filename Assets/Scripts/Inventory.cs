@@ -112,6 +112,7 @@ public class Inventory : MonoBehaviour
             item.GetComponent<Rigidbody>().isKinematic = false;
             item.GetComponent<CenterGravity>().enabled = true;
             holding = false;
+            ui_hotbar.Select(-1);
         }
         if (Input.GetKeyDown("f") && canPick && !holding)
         {
