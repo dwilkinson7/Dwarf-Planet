@@ -8,6 +8,7 @@ TagManager:
   - Iron
   - Straw
   - Wood
+  - Straw_Full
   layers:
   - Default
   - TransparentFX
