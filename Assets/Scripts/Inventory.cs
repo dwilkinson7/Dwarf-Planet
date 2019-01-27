@@ -155,6 +155,7 @@ public class Inventory : MonoBehaviour
         removeItem(type, 1);
         item = Instantiate(go, new Vector3(0, 0, 0), transform.rotation);
         item.transform.SetParent(transform.Find("Hand").transform, false);
+        item.transform.localRotation = Quaternion.identity;
     }
 
     void pickUpObject(Collision col, GameObject go)
@@ -163,5 +164,6 @@ public class Inventory : MonoBehaviour
         Destroy(col.gameObject);
         item = Instantiate(go, new Vector3(0, 0, 0), transform.rotation);
         item.transform.SetParent(GameObject.Find("Hand").transform, false);
+        item.transform.localRotation = Quaternion.identity;
     }
 }
