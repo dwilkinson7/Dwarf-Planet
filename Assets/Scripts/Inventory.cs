@@ -106,10 +106,12 @@ public class Inventory : MonoBehaviour
             current_amount = items[type];
         items[type] = current_amount + amount;
         Debug.Log("Added: " + type + " of amount: " + amount.ToString());
+        ui_hotbar.SetQuantity(type, items[type]);
     }
 
     public void removeItem(string type, int amount)
     {
-        items[type] = items[type] - 1;
+        items[type] = items[type] - amount;
+        ui_hotbar.SetQuantity(type, items[type]);
     }
 }

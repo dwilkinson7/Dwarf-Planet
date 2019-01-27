@@ -575,6 +575,7 @@ MonoBehaviour:
   colors:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
+  TextMesh_Qty: {fileID: 2429305861237643763}
 --- !u!114 &3571455813507183557
 MonoBehaviour:
   m_ObjectHideFlags: 0
