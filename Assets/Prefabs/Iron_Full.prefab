@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4139209654632836100}
   - component: {fileID: 1326066931837561133}
   - component: {fileID: 8554754147164714125}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Iron_Full
   m_TagString: Iron
   m_Icon: {fileID: 0}
