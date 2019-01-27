@@ -12,6 +12,7 @@ public class DwarfControls : MonoBehaviour
     public float TurnSpeed = 10f;
     public float JumpStrength = 8.0f;
     public float FlapStrength = 8.0f;
+    public bool OrientToGround;
     private Vector3 moveDirection = Vector3.zero;
 
     [Header("Components")]
@@ -39,14 +40,20 @@ public class DwarfControls : MonoBehaviour
             }
         }
 
-        // Move the controller
-        transform.Translate(moveDirection, Space.Self);
-
         /* Camera */
         var x = Input.GetAxis("RStick X");
         if (Mathf.Abs(x) < 0.02f)
             x = CrossPlatformInputManager.GetAxis("Mouse X") * 0.7f;
         transform.Rotate(Vector3.up, x * TurnSpeed, Space.Self);
+
+        if (OrientToGround)
+        {
+            Vector3 fwd = Vector3.ProjectOnPlane(transform.forward, transform.position);
+            transform.rotation = Quaternion.LookRotation(fwd, transform.position.normalized);
+        }
+
+        // Move the controller
+        transform.Translate(moveDirection, Space.Self);
     }
 
     private Rigidbody CanJump
