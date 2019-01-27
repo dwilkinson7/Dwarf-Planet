@@ -19,6 +19,11 @@ public class CenterGravity : MonoBehaviour {
     {
         rigidbody.AddForce(transform.position.normalized * -9.81f, ForceMode.Acceleration);
 
+
+    }
+
+    private void Update()
+    {
         if (OrientToGround)
         {
             Vector3 fwd = Vector3.ProjectOnPlane(transform.forward, transform.position);
