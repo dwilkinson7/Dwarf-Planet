@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7586871949377795914
+--- !u!1 &807523967705600529
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7097615379136343854}
-  - component: {fileID: 537264820693740417}
-  - component: {fileID: 2268946764457991121}
-  - component: {fileID: 706140074843912452}
-  - component: {fileID: 4026339310195266715}
-  - component: {fileID: 5854088165541686030}
-  - component: {fileID: 2470485875397406862}
-  - component: {fileID: 4547529716144142488}
+  - component: {fileID: 8747004507160673612}
+  - component: {fileID: 557111248624287088}
+  - component: {fileID: 4998410986121545250}
   m_Layer: 0
-  m_Name: Wood
-  m_TagString: Wood
+  m_Name: GameObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7097615379136343854
+--- !u!4 &8747004507160673612
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586871949377795914}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 7.3380933, y: 54.18834, z: -0.5582832}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_GameObject: {fileID: 807523967705600529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7097615379136343854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &537264820693740417
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586871949377795914}
-  m_Mesh: {fileID: 4300000, guid: 3b6210425b528304b90411305aca88da, type: 3}
---- !u!23 &2268946764457991121
+--- !u!23 &557111248624287088
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586871949377795914}
+  m_GameObject: {fileID: 807523967705600529}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,25 +70,49 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &706140074843912452
-Animator:
-  serializedVersion: 3
+--- !u!33 &4998410986121545250
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807523967705600529}
+  m_Mesh: {fileID: 4300000, guid: 3b6210425b528304b90411305aca88da, type: 3}
+--- !u!1 &7586871949377795914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7097615379136343854}
+  - component: {fileID: 4026339310195266715}
+  - component: {fileID: 5854088165541686030}
+  - component: {fileID: 2470485875397406862}
+  - component: {fileID: 4547529716144142488}
+  m_Layer: 0
+  m_Name: Wood
+  m_TagString: Wood
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7097615379136343854
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586871949377795914}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3b6210425b528304b90411305aca88da, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children:
+  - {fileID: 8747004507160673612}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4026339310195266715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,8 +124,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2.0000014, z: 2.0000005}
-  m_Center: {x: 0, y: -0.0000004768373, z: 1.0000002}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5854088165541686030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c2c2dd140b04f4b911b89ddedd6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  OrientToGround: 0
+  rigidbody: {fileID: 2470485875397406862}
 --- !u!54 &2470485875397406862
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,9 +151,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &4547529716144142488
 MonoBehaviour:

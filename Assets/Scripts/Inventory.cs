@@ -16,6 +16,8 @@ public class Inventory : MonoBehaviour
     public GameObject wood;
     public GameObject stone;
     public GameObject iron;
+    public GameObject torch;
+    public GameObject woodPlatform, stonePlatform, ironPlatform;
 
     bool holding = false;
     bool canPick = false;
@@ -24,7 +26,10 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (ui_hotbar == null)
+        {
+            ui_hotbar = FindObjectOfType<HotBar>();
+        }
     }
 
     // Update is called once per frame
@@ -97,6 +102,73 @@ public class Inventory : MonoBehaviour
                 canPick = false;
 
             }
+            //else if (Input.GetKeyDown("5"))
+            //{
+            //    ui_hotbar.Select(4);
+            //    string type = "Plat_W";
+            //    if (items.ContainsKey(type) && items[type] > 0)
+            //    {
+            //        chooseObject(type, woodPlatform);
+            //    }
+            //    else
+            //    {
+            //        ui_hotbar.Select(-1);
+            //        Debug.Log("You don't have the item!!!");
+            //    }
+            //    holding = true;
+            //    canPick = false;
+
+            //}
+            //else if (Input.GetKeyDown("6"))
+            //{
+            //    ui_hotbar.Select(5);
+            //    string type = "Plat_S";
+            //    if (items.ContainsKey(type) && items[type] > 0)
+            //    {
+            //        chooseObject(type, stonePlatform);
+            //    }
+            //    else
+            //    {
+            //        ui_hotbar.Select(-1);
+            //        Debug.Log("You don't have the item!!!");
+            //    }
+            //    holding = true;
+            //    canPick = false;
+
+            //}
+            //else if (Input.GetKeyDown("7"))
+            //{
+            //    ui_hotbar.Select(6);
+            //    string type = "Plat_I";
+            //    if (items.ContainsKey(type) && items[type] > 0)
+            //    {
+            //        chooseObject(type, ironPlatform);
+            //    }
+            //    else
+            //    {
+            //        ui_hotbar.Select(-1);
+            //        Debug.Log("You don't have the item!!!");
+            //    }
+            //    holding = true;
+            //    canPick = false;
+
+            //}
+            else if (Input.GetKeyDown("8"))
+            {
+                ui_hotbar.Select(7);
+                string type = "Torch";
+                if (items.ContainsKey(type) && items[type] > 0)
+                {
+                    chooseObject(type, torch);
+                }
+                else
+                {
+                    ui_hotbar.Select(-1);
+                    Debug.Log("You don't have the item!!!");
+                }
+                holding = true;
+                canPick = false;
+            }
         }
         if (Input.GetKeyDown("e") && holding)
         {
@@ -145,6 +217,17 @@ public class Inventory : MonoBehaviour
         {
             pickUpObject(collision, stone);
         }
+        else if (Input.GetKeyDown("f"))
+        {
+            if (collision.gameObject.tag == "Torch")
+                pickUpObject(collision, torch);
+            //else if (collision.gameObject.tag == "Plat_W")
+            //    pickUpObject(collision, woodPlatform);
+            //else if (collision.gameObject.tag == "Plat_S")
+            //    pickUpObject(collision, stonePlatform);
+            //else if (collision.gameObject.tag == "Plat_I")
+            //    pickUpObject(collision, ironPlatform);
+        }
     }
 
     void chooseObject(string type, GameObject go)
@@ -152,6 +235,7 @@ public class Inventory : MonoBehaviour
         removeItem(type, 1);
         item = Instantiate(go, new Vector3(0, 0, 0), transform.rotation);
         item.transform.SetParent(transform.Find("Hand").transform, false);
+        item.transform.localRotation = Quaternion.identity;
     }
 
     void pickUpObject(Collision col, GameObject go)
@@ -160,5 +244,6 @@ public class Inventory : MonoBehaviour
         Destroy(col.gameObject);
         item = Instantiate(go, new Vector3(0, 0, 0), transform.rotation);
         item.transform.SetParent(GameObject.Find("Hand").transform, false);
+        item.transform.localRotation = Quaternion.identity;
     }
 }

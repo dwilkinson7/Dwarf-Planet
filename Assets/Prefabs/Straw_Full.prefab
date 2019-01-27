@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7292360138441861142}
   - component: {fileID: 6808315466901074561}
   - component: {fileID: 2590475706885435550}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Straw_Full
   m_TagString: Straw
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6700950010120976889}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 462ae44b07a6a44448c0d72130266894, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -100,13 +100,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6700950010120976889}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0c2c2dd140b04f4b911b89ddedd6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  OrientToGround: 0
+  rigidbody: {fileID: 2590475706885435550}
 --- !u!54 &2590475706885435550
 Rigidbody:
   m_ObjectHideFlags: 0

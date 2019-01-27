@@ -17,7 +17,7 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up * Time.deltaTime * 5);
+        transform.Rotate(Vector3.up * Time.deltaTime * 50);
     }
 
     void OnCollisionEnter(Collision col)

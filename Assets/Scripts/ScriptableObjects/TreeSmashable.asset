@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0969b47b79c178b4cbceb73270c7aedc, type: 3}
+  m_Name: TreeSmashable
+  m_EditorClassIdentifier: 
+  HitsPerChunk: 3
+  ChunksPerLife: 1
+  GrowthDelay: 2
+  GrowthTime: 2
+  height: 2
+  loot:
+  - {fileID: 7097615379136343854, guid: d1f095bcc730b4449ab4ec0ad7da70d6, type: 3}

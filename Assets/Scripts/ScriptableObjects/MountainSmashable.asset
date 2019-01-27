@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0969b47b79c178b4cbceb73270c7aedc, type: 3}
+  m_Name: MountainSmashable
+  m_EditorClassIdentifier: 
+  HitsPerChunk: 4
+  ChunksPerLife: 4
+  GrowthDelay: 20
+  GrowthTime: 2
+  height: 2
+  loot:
+  - {fileID: 4854040407160150705, guid: bf9f3c6968f141d40b8e2ac2cc83b521, type: 3}
+  - {fileID: 4860347823724666598, guid: 5fb196b17eace1a44b557ae199434384, type: 3}
+  - {fileID: 4854040407160150705, guid: bf9f3c6968f141d40b8e2ac2cc83b521, type: 3}
+  - {fileID: 4854040407160150705, guid: bf9f3c6968f141d40b8e2ac2cc83b521, type: 3}
