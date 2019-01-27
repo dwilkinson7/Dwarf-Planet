@@ -21,7 +21,10 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (ui_hotbar == null)
+        {
+            ui_hotbar = FindObjectOfType<HotBar>();
+        }
     }
 
     // Update is called once per frame

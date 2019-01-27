@@ -12,10 +12,19 @@ public class DwarfControls : MonoBehaviour
     public float TurnSpeed = 10f;
     public float JumpStrength = 8.0f;
     public float FlapStrength = 8.0f;
+    public int _axeStrengthDebugModifier;
     private Vector3 moveDirection = Vector3.zero;
 
     [Header("Components")]
     public Rigidbody rigidbody;
+
+    public int AxePower
+    {
+        get
+        {
+            return 1 + _axeStrengthDebugModifier;
+        }
+    }
 
     void Update()
     {
@@ -47,6 +56,11 @@ public class DwarfControls : MonoBehaviour
         if (Mathf.Abs(x) < 0.02f)
             x = CrossPlatformInputManager.GetAxis("Mouse X") * 0.7f;
         transform.Rotate(Vector3.up, x * TurnSpeed, Space.Self);
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Swing();
+        }
     }
 
     private Rigidbody CanJump
@@ -55,5 +69,21 @@ public class DwarfControls : MonoBehaviour
         {
             return rigidbody;
         }
+    }
+
+    private void Swing()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 1f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
+        {
+            Debug.DrawLine(transform.position,transform.position + transform.forward, Color.green, 2f);
+            var smashable = hit.collider.GetComponent<Smashable>();
+            if (smashable)
+            {
+                smashable.Smash(AxePower);
+            }
+        }
+        else
+            Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 2f);
     }
 }
