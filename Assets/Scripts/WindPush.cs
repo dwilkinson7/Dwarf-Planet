@@ -20,7 +20,7 @@ public class WindPush : MonoBehaviour
     {
         if (other.attachedRigidbody)
         {
-            other.attachedRigidbody.AddForce(transform.forward * 10);
+            other.attachedRigidbody.AddForce(transform.forward * 5);
         }
     }
 }
