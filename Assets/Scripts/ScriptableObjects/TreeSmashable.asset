@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0969b47b79c178b4cbceb73270c7aedc, type: 3}
   m_Name: TreeSmashable
   m_EditorClassIdentifier: 
-  HitsPerChunk: 4
+  HitsPerChunk: 3
   ChunksPerLife: 1
-  GrowthDelay: 100
+  GrowthDelay: 2
   GrowthTime: 2
   height: 2
   loot:

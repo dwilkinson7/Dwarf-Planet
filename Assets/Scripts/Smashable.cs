@@ -25,6 +25,9 @@ public class Smashable : MonoBehaviour
 
     public Transform Smash(int power)
     {
+        if (chunksBroken >= data.ChunksPerLife)
+            return null;
+
         hitsTaken += power;
         Transform reward = null;
 
@@ -54,7 +57,6 @@ public class Smashable : MonoBehaviour
     private IEnumerator Regrow()
     {
         var collider = GetComponent<Collider>();
-        collider.enabled = false;
 
         //Sleep
         yield return new WaitForSeconds(data.GrowthDelay);
@@ -69,6 +71,7 @@ public class Smashable : MonoBehaviour
         }
 
         //Enable the collider
-        collider.enabled = true;
+        hitsTaken = 0;
+        chunksBroken = 0;
     }
 }

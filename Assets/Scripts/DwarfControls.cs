@@ -106,12 +106,22 @@ public class DwarfControls : MonoBehaviour
     public void Swing()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 2f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position + transform.up, transform.forward, out hit, 2f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
         {
-            Debug.DrawLine(transform.position,transform.position + transform.forward, Color.green, 2f);
+            Debug.DrawLine(transform.position + transform.up, transform.position + transform.up + transform.forward * 2, Color.green, 2f);
             var smashable = hit.collider.GetComponent<Smashable>();
             if (smashable)
             {
+                if (DustMaker)
+                {
+                    DustMaker.transform.position = hit.point;
+                    DustMaker.Play();
+                }
+                else
+                {
+                    Debug.LogWarning("No DustMaker linked");
+                }
+
                 var rewardTemplate = smashable.Smash(AxePower);
                 if (rewardTemplate)
                 {
@@ -120,19 +130,7 @@ public class DwarfControls : MonoBehaviour
                     var rewardActual = Instantiate(rewardTemplate, pos, rot);
                 }
             }
-
-            if (DustMaker)
-            {
-                DustMaker.transform.position = hit.point;
-                DustMaker.Play();
-            }
-            else
-            {
-                Debug.LogWarning("No DustMaker linked");
-            }
         }
-        else
-            Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 2f);
     }
 
     public void EndSwing()
