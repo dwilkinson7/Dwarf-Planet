@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitsPerChunk: 4
   ChunksPerLife: 4
-  GrowthDelay: 5
+  GrowthDelay: 20
   GrowthTime: 2
   height: 2

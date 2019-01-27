@@ -13,10 +13,12 @@ public class DwarfControls : MonoBehaviour
     public float JumpStrength = 8.0f;
     public float FlapStrength = 8.0f;
     public int _axeStrengthDebugModifier;
+    public bool OrientToGround;
     private Vector3 moveDirection = Vector3.zero;
 
     [Header("Components")]
     public Rigidbody rigidbody;
+    public Animator dwarfAnimator;
 
     public int AxePower
     {
@@ -32,12 +34,21 @@ public class DwarfControls : MonoBehaviour
         moveDirection = (Vector3.right * Input.GetAxis("Horizontal")) + (Vector3.forward * Input.GetAxis("Vertical"));
         //moveDirection = transform.TransformDirection(moveDirection);
         moveDirection = moveDirection.normalized * MoveSpeed * Time.deltaTime;
+        if (moveDirection.magnitude > 0)
+        {
+            dwarfAnimator.SetBool("Moving", true);
+        }
+        else
+        {
+            dwarfAnimator.SetBool("Moving", false);
+        }
 
         if (Input.GetButtonDown("Jump") && CanJump)
         {
             var up = transform.position.normalized;
             if (Physics.Raycast(transform.position + (up * 0.1f), -up, 0.2f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
             {
+                dwarfAnimator.SetTrigger("Jumping");
                 Debug.Log("Jump");
                 rigidbody.AddForce(up * JumpStrength, ForceMode.Impulse);
             }
@@ -47,9 +58,6 @@ public class DwarfControls : MonoBehaviour
                 rigidbody.AddForce(up * FlapStrength, ForceMode.Impulse);
             }
         }
-
-        // Move the controller
-        transform.Translate(moveDirection, Space.Self);
 
         /* Camera */
         var x = Input.GetAxis("RStick X");
@@ -61,6 +69,15 @@ public class DwarfControls : MonoBehaviour
         {
             Swing();
         }
+        
+        if (OrientToGround)
+        {
+            Vector3 fwd = Vector3.ProjectOnPlane(transform.forward, transform.position);
+            transform.rotation = Quaternion.LookRotation(fwd, transform.position.normalized);
+        }
+
+        // Move the controller
+        transform.Translate(moveDirection, Space.Self);
     }
 
     private Rigidbody CanJump
