@@ -12,23 +12,34 @@ public class Smashable : MonoBehaviour
     int hitsTaken = 0;
     int chunksBroken = 0;
 
+    ParticleSystem dust;
+
     // Start is called before the first frame update
     void Start()
     {
         _startScale = transform.localScale;
         _startPosition = transform.localPosition;
         _minPosition = _startPosition - (data.height * transform.up);
+        dust = GetComponent<ParticleSystem>();
     }
 
-    public void Smash(int power)
+    public Transform Smash(int power)
     {
         hitsTaken += power;
-        Debug.Log("Hits taken: " + hitsTaken);
+        Transform reward = null;
+
         while (hitsTaken >= data.HitsPerChunk)
         {
+            if (dust)
+                dust.Play();
+
             chunksBroken++;
             hitsTaken -= data.ChunksPerLife;
             transform.localScale = _startScale * (data.ChunksPerLife - chunksBroken) / data.ChunksPerLife;
+            if (data.loot.Length > 0)
+            {
+                reward = data.loot[chunksBroken % data.loot.Length];
+            }
 
             if (chunksBroken >= data.ChunksPerLife)
             {
@@ -36,6 +47,8 @@ public class Smashable : MonoBehaviour
                 break;
             }
         }
+
+        return reward;
     }
 
     private IEnumerator Regrow()

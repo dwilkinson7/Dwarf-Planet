@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509051701}
   m_LocalRotation: {x: 0.1681103, y: -0, z: -0, w: 0.9857682}
-  m_LocalPosition: {x: -0.15, y: 2.97, z: -4.9}
+  m_LocalPosition: {x: -0.15, y: 3.62, z: -6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8184085313385266101}
@@ -139,11 +139,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 3892482366717065980}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.33730552
   m_Height: 1.2372055
   m_Direction: 1
   m_Center: {x: 0, y: 0.5591202, z: -0.055065006}
+--- !u!65 &2040689198377708038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892482366717065980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66464126, y: 1.237297, z: 0.67198896}
+  m_Center: {x: 0, y: 0.61166763, z: -0.066300094}
 --- !u!1 &4111437534816373748
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,11 +237,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 6
   TurnSpeed: 15
-  JumpStrength: 40
+  JumpStrength: 30
   FlapStrength: 20
+  _axeStrengthDebugModifier: 0
   OrientToGround: 1
   rigidbody: {fileID: 2741126098864413863}
   dwarfAnimator: {fileID: 3892482366709762344}
+  DustMaker: {fileID: 0}
 --- !u!114 &1992670607468213208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +268,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8184085313385266101}
     m_Modifications:
+    - target: {fileID: 9500000, guid: bf39294e5fbf9314281585172bbdf671, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 74b434ff69728c542b21016aea2f3032, type: 2}
     - target: {fileID: 400020, guid: bf39294e5fbf9314281585172bbdf671, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -805,14 +824,6 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 3892482366717028062}
-    - target: {fileID: 9500000, guid: bf39294e5fbf9314281585172bbdf671, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: bf39294e5fbf9314281585172bbdf671, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 74b434ff69728c542b21016aea2f3032, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf39294e5fbf9314281585172bbdf671, type: 3}
 --- !u!4 &3892482366717028054 stripped

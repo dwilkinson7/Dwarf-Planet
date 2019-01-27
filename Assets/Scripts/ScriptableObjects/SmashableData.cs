@@ -11,4 +11,5 @@ public class SmashableData : ScriptableObject
     public float GrowthDelay = 10f;
     public float GrowthTime = 2f;
     public float height = 3f;
+    public Transform[] loot; 
 }

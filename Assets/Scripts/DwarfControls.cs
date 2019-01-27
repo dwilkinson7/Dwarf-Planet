@@ -19,6 +19,9 @@ public class DwarfControls : MonoBehaviour
     [Header("Components")]
     public Rigidbody rigidbody;
     public Animator dwarfAnimator;
+    public ParticleSystem DustMaker;
+
+    private bool _isSwinging;
 
     public int AxePower
     {
@@ -28,20 +31,18 @@ public class DwarfControls : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         /* Movement */
         moveDirection = (Vector3.right * Input.GetAxis("Horizontal")) + (Vector3.forward * Input.GetAxis("Vertical"));
         //moveDirection = transform.TransformDirection(moveDirection);
         moveDirection = moveDirection.normalized * MoveSpeed * Time.deltaTime;
-        if (moveDirection.magnitude > 0)
-        {
-            dwarfAnimator.SetBool("Moving", true);
-        }
-        else
-        {
-            dwarfAnimator.SetBool("Moving", false);
-        }
 
         if (Input.GetButtonDown("Jump") && CanJump)
         {
@@ -65,19 +66,33 @@ public class DwarfControls : MonoBehaviour
             x = CrossPlatformInputManager.GetAxis("Mouse X") * 0.7f;
         transform.Rotate(Vector3.up, x * TurnSpeed, Space.Self);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !_isSwinging)
         {
+            /*
             Swing();
+            */
+            _isSwinging = true;
+            dwarfAnimator.SetBool("Attacking", true);
+            Invoke("Swing", 0.9f);
+            Invoke("EndSwing", 1f);
         }
-        
+
+        if (!_isSwinging && moveDirection.magnitude > 0.01f)
+        {
+            dwarfAnimator.SetBool("Moving", true);
+            // Move the controller
+            transform.Translate(moveDirection, Space.Self);
+        }
+        else
+        {
+            dwarfAnimator.SetBool("Moving", false);
+        }
+
         if (OrientToGround)
         {
             Vector3 fwd = Vector3.ProjectOnPlane(transform.forward, transform.position);
             transform.rotation = Quaternion.LookRotation(fwd, transform.position.normalized);
         }
-
-        // Move the controller
-        transform.Translate(moveDirection, Space.Self);
     }
 
     private Rigidbody CanJump
@@ -88,19 +103,41 @@ public class DwarfControls : MonoBehaviour
         }
     }
 
-    private void Swing()
+    public void Swing()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 1f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2f, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore))
         {
             Debug.DrawLine(transform.position,transform.position + transform.forward, Color.green, 2f);
             var smashable = hit.collider.GetComponent<Smashable>();
             if (smashable)
             {
-                smashable.Smash(AxePower);
+                var rewardTemplate = smashable.Smash(AxePower);
+                if (rewardTemplate)
+                {
+                    var pos = hit.point + (hit.point.normalized * 2);
+                    var rot = transform.rotation;
+                    var rewardActual = Instantiate(rewardTemplate, pos, rot);
+                }
+            }
+
+            if (DustMaker)
+            {
+                DustMaker.transform.position = hit.point;
+                DustMaker.Play();
+            }
+            else
+            {
+                Debug.LogWarning("No DustMaker linked");
             }
         }
         else
             Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 2f);
+    }
+
+    public void EndSwing()
+    {
+        _isSwinging = false;
+        dwarfAnimator.SetBool("Attacking", false);
     }
 }

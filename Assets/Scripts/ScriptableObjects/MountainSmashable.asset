@@ -17,3 +17,8 @@ MonoBehaviour:
   GrowthDelay: 20
   GrowthTime: 2
   height: 2
+  loot:
+  - {fileID: 4854040407160150705, guid: bf9f3c6968f141d40b8e2ac2cc83b521, type: 3}
+  - {fileID: 4860347823724666598, guid: 5fb196b17eace1a44b557ae199434384, type: 3}
+  - {fileID: 4854040407160150705, guid: bf9f3c6968f141d40b8e2ac2cc83b521, type: 3}
+  - {fileID: 4854040407160150705, guid: bf9f3c6968f141d40b8e2ac2cc83b521, type: 3}
