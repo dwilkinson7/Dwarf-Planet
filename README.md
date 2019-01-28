@@ -9,14 +9,14 @@
  - Fly [Space][Space]! 
  - Craft on a bench (literally)!
 
-Team:
+## Team:
 
     - David Wilkinson
     - Edward Rochester
     - Lei Wang
     - Joel Barr
 
-Assets From:
+## Assets From:
 
     - HolyShift
     - Low Poly Survival Pack
