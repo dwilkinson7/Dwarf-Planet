@@ -1,4 +1,5 @@
 Global Game Jam 2019 Submission:
+![](https://ggj.s3.amazonaws.com/styles/game_sidebar__wide/featured_image/2019/01/71476/title.png?itok=upQLKp46&timestamp=1548628456)
 
  - Be a space dwarf! Run [WASD] around a planet! 
  - See the sights [Mouse]! 
